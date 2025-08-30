@@ -66,8 +66,12 @@ int main() {
                     for ( int j = 0; j < n; j++ ) {
                         if ( banco[j ].nom == nom2 ) {
                             cout << "Monto a transferir="; cin >> monto;
-                            banco[ i ].saldo -= monto;
-                            banco[ j ].saldo += monto;
+                            if ( banco[ i ].saldo >= monto ) {
+                                banco[ i ].saldo -= monto;
+                                banco[ j ].saldo += monto;
+                            } else {
+                                cout << "Error: Fondos insuficientes" << endl;
+                            }
                         }
                     }
                 }
